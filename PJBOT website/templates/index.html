@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Flask Tutorial</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='icon/car_favicon.png') }}">
+	</head>
+	<body>
+	{% extends "template.html" %}
+	{% block content %}
+			<div class="grid tCenter" style="height: 200px">
+				<strong><p class="intro">Call nearest robot</p></strong>
+				<form style="width:50%; float: left;" action="/submit" method="post">
+					<button class="button">Call Car</button>
+				</form>
+				<form style="width:50%; float: left;" action="/reset" method="post">
+					<button class="resetbutton">Reset</button>
+				</form>
+				<div class="grid tCenter">
+					<p style="padding: 50px">Tag number = {{call}}</p>
+				</div>
+			</div>
+			<div class="grid tCenter">
+				<form method="POST">
+				<input name="text">
+				<input type="submit">
+				</form>
+			</div>
+	{% endblock %}
+	</body>
+</html>
